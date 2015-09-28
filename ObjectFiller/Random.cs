@@ -18,18 +18,10 @@ namespace Tynamix.ObjectFiller
     /// </summary>
     internal static class Random
     {
-        /// <summary>
-        /// A instance of <see cref="Random"/>
-        /// </summary>
-        private static readonly System.Random Rnd;
-
-        /// <summary>
-        /// Initializes static members of the <see cref="Random"/> class.
-        /// </summary>
-        static Random()
-        {
-            Rnd = new System.Random();
-        }
+	    private static System.Random Rnd
+	    {
+			get { return ThreadSafeRandomProvider.GetThreadRandom(); }
+	    }
 
         /// <summary>
         /// Returns a nonnegative number
